@@ -15,5 +15,5 @@ tail -n +14 municipios.sql > municipios.prepared.sql
 
 # focos (2020)
 shp2pgsql -c -g "geom" -s 4326 -i -I -t "2D" -W UTF-8 focos_2020.shp public.focos_2020 > focos_2020.sql
-sed -i 's/INSERT INTO "public"."focos_2020" ("datahora","satelite","pais","estado","municipio","bioma","diasemchuv","precipitac","riscofogo","latitude","longitude","frp",geom)/INSERT INTO focos_2020 (datahora,satelite,pais,estado,municipio,bioma,diasemchuv,precipitac,riscofogo,latitude,longitude,frp,geom)/g' focos_2020.sql
-tail -n +18 municipios.sql > focos_2020.prepared.sql
+sed -i 's/INSERT INTO "public"."focos_2020" ("__gid","datahora","satelite","pais","estado","municipio","bioma","diasemchuv","precipitac","riscofogo","latitude","longitude","frp",geom)/INSERT INTO focos_2020 (gid,datahora,satelite,pais,estado,municipio,bioma,diasemchuv,precipitac,riscofogo,latitude,longitude,frp,geom)/g' focos_2020.sql
+tail -n +21 focos_2020.sql > focos_2020.prepared.sql
