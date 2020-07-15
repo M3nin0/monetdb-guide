@@ -1,3 +1,6 @@
 [submodule "monetdb-r-docker"]
 	path = monetdb-r-docker
 	url = https://github.com/MonetDB/monetdb-r-docker
+[submodule "docker/monetdb-r-docker"]
+	path = docker/monetdb-r-docker
+	url = https://github.com/MonetDB/monetdb-r-docker
