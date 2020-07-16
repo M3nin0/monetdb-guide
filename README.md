@@ -27,4 +27,4 @@ Para a execução do MonetDB ,faça a criação de um container com a imagem [ht
 docker run -d -P -p 50000:50000 --name monetdb-data monetdb/monetdb-r-docker
 ```
 
-Feito isto o sistema do banco de dados já estará disponível na porta `50000`. Para mais informações consulte a [documentação do container](https://hub.docker.com/r/monetdb/monetdb-r-docker/).
+Feito isto o sistema do banco de dados já estará disponível na porta `50000`. Para mais informações consulte a [documentação da imagem](https://hub.docker.com/r/monetdb/monetdb-r-docker/).
