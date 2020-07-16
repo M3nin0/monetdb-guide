@@ -24,16 +24,21 @@ Criando uma tabela de MBRs para acelerar a consulta, como apresentado na documen
 CREATE TABLE municipios_mbr AS (
     SELECT *, mbr(geom) as geom_mbr FROM municipios
 );
+
+CREATE TABLE focos_2020_mbr AS (
+    SELECT *, mbr(geom) as geom_mbr FROM focos_2020
+);
 ```
 
 ```sql
 SELECT 
-    COUNT(f.geom) 
+    COUNT(f.gid) 
 FROM 
-    municipios_mbr AS ma,
-    focos_2020 AS f 
+    municipios_mbr AS ma, 
+    focos_2020_mbr AS f 
 WHERE 
-    ST_Contains(ma.geom, f.geom) AND ma.nome = 'JACAREÍ';
+    ST_Contains(ma.geom_mbr, f.geom_mbr) AND 
+    ma.nome = 'SANTA ISABEL' AND ma.uf = 'SÃO PAULO';
 ```
 
 Note que, testes foram realizados sem a criação do mbr e neste, as consultas foram muito demoradas.
