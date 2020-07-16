@@ -43,3 +43,24 @@ WHERE
 
 Note que, testes foram realizados sem a criação do mbr e neste, as consultas foram muito demoradas.
 
+* Focos de incêndio por unidade federativa
+
+```sql
+CREATE TABLE uf_mbr AS (
+	SELECT *, mbr(geom) as geom_mbr FROM uf
+);
+```
+
+```sql
+SELECT
+	u.nome, COUNT(f.gid) as qtdqueimada
+FROM
+	uf_mbr AS u,
+	focos_2020_mbr AS f
+WHERE
+	ST_Contains(u.geom_mbr, f.geom_mbr)
+GROUP BY
+	u.nome
+ORDER BY qtdqueimada ASC;
+```
+
