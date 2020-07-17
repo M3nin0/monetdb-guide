@@ -14,7 +14,10 @@ MonetDB faz a implementação de vários operadores espaciais com o auxílio da 
 - ST_Intersection;
 - ST_Intersects;
 - ST_Overlaps;
-- ST_Distance.
+- ST_Distance;
+- ST_Area;
+- ST_Length;
+- ST_Envelope.
 
 > Perceba que na [documentação oficial](https://www.monetdb.org/Documentation/ServerProgramming/ExtendingSQL/GeoSpatial/SpatialFunctions) os operadores estão com outros nomes, porém, conferindo o [código fonte](https://github.com/MonetDB/MonetDB/tree/master/geom) da extensão geom percebeu-se a mudança. O que deixou o uso das funcionalidades mais próximas com o que é feito no PostGIS.
 
