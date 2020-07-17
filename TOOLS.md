@@ -21,7 +21,7 @@ Os dados carregados são os polígonos de unidades federativas do Brasil.
 Para exportar dados, o MonetDB tem em seu ecossistema a ferramenta [msqldump](https://www.monetdb.org/Documentation/Reference/MonetDBClientApplications/msqldump). Com esta ferramenta é possível exportar os dados em diferentes formatos. Abaixo é apresentado um exemplo de exportação do banco de dados `db`.
 
 ```shell
-msqldump --database=db --host=localhost --user=monetdb --inserts > dump.sql
+msqldump --database=db --host=localhost --user=monetdb > dump.sql
 ```
 
 É importante notar que há muitas outras ferramentas e formas de trabalhar os dados no MonetDB. Caso esteja interessado, recomenda-se a consulta as páginas de [ferramentas Cliente/Servidor](https://www.monetdb.org/Documentation/Reference)
