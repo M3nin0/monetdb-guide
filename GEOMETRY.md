@@ -2,7 +2,7 @@
 
 Segundo a documentação do MonetDB, a representação geométrica é feita seguindo a OGC-SFS. Abaixo é feita a apresentação do diagrama de classes das geometrias suportadas.
 
-![class_geometry]()
+![class_geometry](images/ogc-sfs.png)
 
 Como o MonetDB é um banco de dados modular, estas representações geométricas são feitas através de uma extensão nomeada [geom/GIS](https://www.monetdb.org/Documentation/ServerProgramming/ExtendingSQL/GeoSpatial).
 
