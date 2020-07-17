@@ -16,9 +16,9 @@ MonetDB faz a implementação de vários operadores espaciais com o auxílio da 
 - ST_Overlaps;
 - ST_Distance.
 
-> Perceba que na documentação oficial os operadores estão com outros nomes, porém, conferindo o [código fonte](https://github.com/MonetDB/MonetDB/tree/master/geom) da extensão geom percebeu-se a mudança. O que deixou o uso das funcionalidades mais próximas com o que é feito no PostGIS.
+> Perceba que na [documentação oficial](https://www.monetdb.org/Documentation/ServerProgramming/ExtendingSQL/GeoSpatial/SpatialFunctions) os operadores estão com outros nomes, porém, conferindo o [código fonte](https://github.com/MonetDB/MonetDB/tree/master/geom) da extensão geom percebeu-se a mudança. O que deixou o uso das funcionalidades mais próximas com o que é feito no PostGIS.
 
-Cabe lembrar que estas implementações, conforme indicado pela documentação, são as versões iniciais, mas que estão em constante desenvolvimento.
+Cabe lembrar que estas implementações, conforme indicado pela documentação, são as versões iniciais, que estão em constante desenvolvimento. Para saber sobre as demais operações consulte a página de [Funções espaciais do MonetDB](https://www.monetdb.org/Documentation/ServerProgramming/ExtendingSQL/GeoSpatial/SpatialFunctions).
 
 ### Matriz de 9 intersecções extendida dimensionalmente (DE-9IM)
 
