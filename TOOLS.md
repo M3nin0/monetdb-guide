@@ -9,7 +9,7 @@ Aqui são apresentadas algumas formas de importar/exportar dados do banco de dad
 Para a importação dos dados, neste exemplo será considerado a ferramenta mclient e um conjunto de instruções SQL. Desta forma, a importação dos dados pode ser feita da seguinte maneira.
 
 ```shell
-mclient -u monetdb -d db uf.prepared.sql --encoding=UTF-8 --log=a.log
+mclient -u monetdb --encoding=UTF-8 --log=a.log -d db uf.prepared.sql
 ```
 
 Os dados carregados são os polígonos de unidades federativas do Brasil.
