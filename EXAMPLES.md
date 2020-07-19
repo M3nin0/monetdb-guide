@@ -16,7 +16,7 @@ WHERE
 		ma.geom
 	);
 ```
-* Quantos focos de incêndio há em Santa Isabel ? 
+* Quantos focos de incêndio há em Santarém ? 
 
 Criando uma tabela de MBRs para acelerar a consulta, como apresentado na documentação.
 
@@ -37,7 +37,7 @@ FROM
     municipios_mbr AS ma, 
     focos_2020_mbr AS f 
 WHERE 
-    ma.nome = 'SANTA ISABEL' AND ma.uf = 'SÃO PAULO' AND
+    ma.nome = 'SANTARÉM' AND ma.uf = 'PARÁ' AND
     mbr_overlap(ma.geom_mbr, f.geom_mbr) AND 
     ST_Contains(ma.geom, f.geom);
 ```
