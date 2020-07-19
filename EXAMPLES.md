@@ -16,7 +16,7 @@ WHERE
 		ma.geom
 	);
 ```
-* Quantos focos de incêndio há em Jacareí ? 
+* Quantos focos de incêndio há em Santa Isabel ? 
 
 Criando uma tabela de MBRs para acelerar a consulta, como apresentado na documentação.
 
@@ -37,8 +37,9 @@ FROM
     municipios_mbr AS ma, 
     focos_2020_mbr AS f 
 WHERE 
-    ST_Contains(ma.geom_mbr, f.geom_mbr) AND 
-    ma.nome = 'SANTA ISABEL' AND ma.uf = 'SÃO PAULO';
+    ma.nome = 'SANTA ISABEL' AND ma.uf = 'SÃO PAULO' AND
+    mbr_overlap(ma.geom_mbr, f.geom_mbr) AND 
+    ST_Contains(ma.geom, f.geom);
 ```
 
 Note que, testes foram realizados sem a criação do mbr e neste, as consultas foram muito demoradas.
