@@ -42,26 +42,17 @@ WHERE
     ST_Contains(ma.geom, f.geom);
 ```
 
-Note que, testes foram realizados sem a criação do mbr e neste, as consultas foram muito demoradas.
-
-* Focos de incêndio por unidade federativa
-
-```sql
-CREATE TABLE uf_mbr AS (
-	SELECT *, mbr(geom) as geom_mbr FROM uf
-);
-```
+* Quantos focos de incêndio há próximo ao ponto (-55.557, -1.992) ?
 
 ```sql
 SELECT
-	u.nome, COUNT(f.gid) as qtdqueimada
+	COUNT(*)
 FROM
-	uf_mbr AS u,
-	focos_2020_mbr AS f
+	focos_2020 AS f
 WHERE
-	ST_Contains(u.geom_mbr, f.geom_mbr)
-GROUP BY
-	u.nome
-ORDER BY qtdqueimada ASC;
+	ST_DWithin(
+           ST_SetSRID(f.geom, 4674),
+           ST_GeomFromText('POINT(-55.577 -1.992)', 4674),
+           2.0
+       );
 ```
-
