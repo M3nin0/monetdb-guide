@@ -1,6 +1,6 @@
 # MonetDB
 
-Caracterização do banco de dados colunar MonetDB.
+Caracterização do banco de dados orientado a colunas [MonetDB](https://www.monetdb.org/).
 
 ## Questões consideradas
 
