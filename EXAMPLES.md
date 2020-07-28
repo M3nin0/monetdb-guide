@@ -5,41 +5,35 @@ Utilizando os dados de municípios, uf e focos de incêndio (2020), são apresen
 * Quais os municípios vizinhos de Jacareí em São Paulo?
 
 ```sql
-SELECT
-	nome, ma.geom
-FROM
-	municipios AS ma,
-	(SELECT geom FROM municipios WHERE nome = 'JACAREÍ') AS ms
-WHERE
-	ST_Touches(
-		ms.geom,
-		ma.geom
-	);
-```
-* Quantos focos de incêndio há em Santarém ? 
-
-Criando uma tabela de MBRs para acelerar a consulta, como apresentado na documentação.
-
-```sql
 CREATE TABLE municipios_mbr AS (
     SELECT *, mbr(geom) as geom_mbr FROM municipios
 );
-
-CREATE TABLE focos_2020_mbr AS (
-    SELECT *, mbr(geom) as geom_mbr FROM focos_2020
-);
 ```
 
 ```sql
-SELECT 
-    COUNT(f.gid) 
-FROM 
-    municipios_mbr AS ma, 
-    focos_2020_mbr AS f 
-WHERE 
-    ma.nome = 'SANTARÉM' AND ma.uf = 'PARÁ' AND
-    mbr_overlap(ma.geom_mbr, f.geom_mbr) AND 
-    ST_Contains(ma.geom, f.geom);
+SELECT
+ 	ma.nome
+FROM
+	municipios_mbr AS ma,
+	(SELECT * FROM municipios_mbr WHERE nome = 'JACAREÍ') AS ms
+WHERE
+	mbr_overlap(ms.geom_mbr, ma.geom_mbr) AND
+	ST_Touches(
+		ms.geom,
+		ma.geom
+    	);
+```
+* Quantos focos de incêndio há em Santarém ? 
+
+```sql
+SELECT
+	COUNT(f.gid)
+FROM
+	municipios AS ma,
+	focos_2020 AS f
+WHERE
+	ma.nome = 'SANTARÉM' AND ma.uf = 'PARÁ' AND
+	ST_Contains(ma.geom, f.geom);
 ```
 
 * Quantos focos de incêndio há próximo ao ponto (-55.557, -1.992) ?
